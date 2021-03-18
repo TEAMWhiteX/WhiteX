@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd $HOME/white
+cd $HOME/whitex
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
@@ -10,7 +10,7 @@ chmod +x ts
 get() {
 rm -fr white.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/TEAMwhiteX/white/master/white.lua"
+wget "https://raw.githubusercontent.com/TEAMwhiteX/whitex/master/white.lua"
 lua start.lua
 }
 installall(){
@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd white
+cd whitex
 rm -rf luarocks*
 lua start.lua
 
