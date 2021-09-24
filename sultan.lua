@@ -713,7 +713,7 @@ height_ = 0
 }},func or dl_cb,nil)
 end
 function tdcli_update_callback_value(Data) 
-url = 'https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua'
+url = 'https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua'
 file_path = 'sultan.lua'
 local respbody = {} 
 local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
@@ -733,7 +733,7 @@ end
 ------------------------------------------------------------------------------------------------------------ 
 function tdcli_update_callback_value_(Data) 
 tdcli_update_callback_value(Data) 
-url = 'https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua'
+url = 'https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua'
 file_path = 'sultan.lua'
 local respbody = {} 
 local options = { url = url, sink = ltn12.sink.table(respbody), redirect = true } 
@@ -11292,8 +11292,8 @@ if text == ("تحديث السورس") and Devsultan(msg) then
 send(msg.chat_id_,msg.id_,'*Updated latest version ...*')
 os.execute('rm -rf sultan.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/sultan/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/start.lua')
 dofile('sultan.lua')  
 return false
 end
@@ -11303,7 +11303,7 @@ send(msg.chat_id_, msg.id_, "◊￤تم تحديث ملفات البوت")
 return false
 end
 if text == 'تحديث ماتركس' and Devsultan(msg) then
-download_to_file('https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua','sultan.lua') 
+download_to_file('https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua','sultan.lua') 
 send(msg.chat_id_, msg.id_, "◊￤تم تحديث السورس وتنزيل اخر تحديث للملفات")
 return false
 end
@@ -13875,7 +13875,7 @@ return false
 end
 if text == "متجر الملفات ↝" or text == 'المتجر' and Devsultan(msg) then
 if Devsultan(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_sultan/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/TEAMWhiteX/files_sultan/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -13913,7 +13913,7 @@ t = "*◊￤الملف ↜ {"..file.."}\n◊￤تم تعطيله وحذفه بن
 else
 t = "*◊￤بالتاكيد تم تعطيل وحذف ملف ↜ {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_sultan/master/files_sultan/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/TEAMWhiteX/files_sultan/master/files_sultan/"..file)
 if res == 200 then
 os.execute("rm -fr sultan_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -13933,7 +13933,7 @@ t = "*◊￤بالتاكيد تم تنزيل وتفعيل ملف ↜ {"..file.."
 else
 t = "*◊￤الملف ↜ {"..file.."}\n◊￤تم تنزيله وتفعيله بنجاح \n*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/DevMaYor3/files_sultan/master/files_sultan/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/TEAMWhiteX/files_sultan/master/files_sultan/"..file)
 if res == 200 then
 local chek = io.open("sultan_Files/"..file,'w+')
 chek:write(json_file)
@@ -13949,8 +13949,8 @@ if text == "تحديث السورس ↝" then
 send(msg.chat_id_,msg.id_,'*◊￤تم التحديث*')
 os.execute('rm -rf sultan.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua')
-os.execute('wget https://raw.githubusercontent.com/DevMaYor3/sultan/master/start.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua')
+os.execute('wget https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/start.lua')
 dofile('sultan.lua')  
 return false
 end

@@ -70,7 +70,7 @@ Runsultan:write([[
 cd $HOME/sultan
 token="]]..database:get(Server_sultan.."Token_sultan")..[["
 rm -fr sultan.lua
-wget "https://raw.githubusercontent.com/DevMaYor3/sultan/master/sultan.lua"
+wget "https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./sultan.lua -p PROFILE --bot=$token
