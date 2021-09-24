@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-cd $HOME/whitex
+cd $HOME/sultan
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x white
+chmod +x sultan
 chmod +x ts
 ./ts
 }
 get() {
-rm -fr white.lua
+rm -fr sultan.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/TEAMwhiteX/whitex/master/white.lua"
+wget "https://raw.githubusercontent.com/TEAMWhiteX/sultan/master/sultan.lua"
 lua start.lua
 }
 installall(){
@@ -20,7 +20,6 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install tmux
 sudo apt-get install luarocks
-sudo timedatectl set-timezone Asia/Baghdad
 sudo apt-get install screen
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
 sudo apt-get update
@@ -48,7 +47,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd whitex
+cd sultan
 rm -rf luarocks*
 lua start.lua
 
