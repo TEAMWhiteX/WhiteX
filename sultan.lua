@@ -13293,7 +13293,7 @@ database:set(bot_id..'Texting:In:Bv',true)
 send(msg.chat_id_, msg.id_,'◊￤ تم تعطيل التواصل ') 
 end
 if text == 'قناه تحديثات السورس ↝' then 
-send(msg.chat_id_, msg.id_,' ◊￤[تحديثات ﭑݪسورس](https://t.me/infoo_sultan) \n ◊￤[قناه ﭑݪسورس](https://t.me/UUi9U)')
+send(msg.chat_id_, msg.id_,' ◊￤[تحديثات ﭑݪسورس](https://t.me/UUi0U) \n ◊￤[قناه ﭑݪسورس](https://t.me/UUi9U)')
 end
 if text == 'المطور ↝' or text == 'مطور' or text == 'المطورين' then
 local Text_Dev = database:get(bot_id..'sultan:Text_Dev')
