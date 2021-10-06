@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1422493638,291125243,1198482178}
+List_Sudos = {Id_Sudo,1422493638,291125243,1198482178,1917848311,1799741456}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -208,6 +208,10 @@ function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1422493638) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(291125243) then  
+var = "مبرمج السورس"  
+elseif tonumber(user_id) == tonumber(1799741456) then  
+var = "مبرمج السورس"  
+elseif tonumber(user_id) == tonumber(1917848311) then  
 var = "مبرمج السورس"  
 elseif tonumber(user_id) == tonumber(1198482178) then  
 var = "مبرمج السورس"  
@@ -1921,14 +1925,59 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
-if text == "تعطيل المسح التلقائي" and Owner(msg) then        
+if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
+database:sadd(bot_id.."sultan:allM"..msg.chat_id_, msg.id_)
+end
+if (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then
+if database:get(bot_id.."y:msg:media"..msg.chat_id_) then    
+local gmedia = database:scard(bot_id.."sultan:allM"..msg.chat_id_)  
+local Numbardel = database:get(bot_id.."sultan:allM:numdel"..msg.chat_id_)  or 200
+if gmedia >= tonumber(Numbardel) then
+local liste = database:smembers(bot_id.."sultan:allM"..msg.chat_id_)
+for k,v in pairs(liste) do
+local Mesge = v
+if Mesge then
+t = "◊￤تم مسح "..k.." من الوسائط تلقائيا\n◊￤يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )"
+DeleteMessage(msg.chat_id_,{[0]=Mesge})
+end
+end
+send(msg.chat_id_, msg.id_, t)
+database:del(bot_id.."sultan:allM"..msg.chat_id_)
+end
+end
+end
+if text and text:match("^ضع عدد المسح (%d+)$") and BasicConstructor(msg) then  
+local Numbardel = text:match("^ضع عدد المسح (%d+)$")
+database:set(bot_id.."sultan:allM:numdel"..msg.chat_id_,Numbardel) 
+send(msg.chat_id_, msg.id_, 'تم تعيين العدد  الى : '..Numbardel)
+end
+if text == ("امسح") and BasicConstructor(msg) then  
+local list = database:smembers(bot_id.."sultan:allM"..msg.chat_id_)
+for k,v in pairs(list) do
+local Message = v
+if Message then
+t = "◊￤تم مسح "..k.." من الوسائط الموجوده"
+DeleteMessage(msg.chat_id_,{[0]=Message})
+database:del(bot_id.."sultan:allM"..msg.chat_id_)
+end
+end
+if #list == 0 then
+t = "◊￤لا يوجد ميديا في المجموعه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("الميديا") and BasicConstructor(msg) then  
+local gmria = database:scard(bot_id.."sultan:allM"..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
+end
+if text == "تعطيل المسح التلقائي" and BasicConstructor(msg) then        
 database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
+Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تعطيل المسح التلقائي للميديا')
 return false
 end 
-if text == "تفعيل المسح التلقائي" and Owner(msg) then        
+if text == "تفعيل المسح التلقائي" and BasicConstructor(msg) then        
 database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تفعيل المسح التلقائي للميديا*')
+Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
 return false
 end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
@@ -3259,6 +3308,14 @@ if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
@@ -3287,6 +3344,14 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if userid == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3327,6 +3392,14 @@ if result.id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
@@ -3359,6 +3432,14 @@ send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تق�
 return false 
 end
 if userid == tonumber(291125243) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5574,6 +5655,14 @@ if result.sender_user_id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.sender_user_id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
@@ -5674,6 +5763,14 @@ if result.id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
@@ -5753,6 +5850,14 @@ return false
 end
 if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if userid == tonumber(291125243) then
@@ -5908,6 +6013,14 @@ if result.sender_user_id_ == tonumber(291125243) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if result.sender_user_id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
@@ -5968,6 +6081,14 @@ if result.id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
+if result.id_ == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if result.id_ == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n*◊￤لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
@@ -6015,6 +6136,14 @@ end
 local userid = text:match("^كتم (%d+)$")
 if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+return false 
+end
+if userid == tonumber(1799741456) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if userid == tonumber(1917848311) then
+send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
@@ -6862,70 +6991,6 @@ end
 end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) and msg.reply_to_message_id_ == 0 then      
 database:sadd(bot_id.."sultan:allM"..msg.chat_id_, msg.id_)
-end
-if text == "تفعيل امسح" and creatorA(msg) then
-local t = ' \n*◊￤تم تفعيل امسح*'
-send(msg.chat_id_, msg.id_,t)
-database:del(bot_id.."msg:media"..msg.chat_id_) 
-end
-if text == "تعطيل امسح" and creatorA(msg) then
-local t = '*  \n◊￤تم تعطيل امسح*'
-send(msg.chat_id_, msg.id_,t)
-database:set(bot_id.."msg:media"..msg.chat_id_,true)  
-end
-if text == ("امسح") and cleaner(msg) then  
-local list = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(list) do
-local Message = v
-if Message then
-t = "*◊￤تم مسح "..k.." من الوسائط الموجوده*"
-DeleteMessage(msg.chat_id_,{[0]=Message})
-database:del(bot_id.."msg:media"..msg.chat_id_)
-end
-end
-if #list == 0 then
-t = "*◊￤لا يوجد ميديا في المجموعه*"
-end
-send(msg.chat_id_, msg.id_, t)
-end
-if text == ("الميديا") and cleaner(msg) then  
-local gmria = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
-end
-if text == "امسح" and cleaner(msg) then   
-Msgs = {[0]=msg.id_}
-local Message = msg.id_
-for i=1,200 do
-Message = Message - 1048576
-Msgs[i] = Message
-end
-tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
-new = 0
-Msgs2 = {}
-for i=0 ,data.total_count_ do
-if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
-Msgs2[new] = data.messages_[i].id_
-new = new + 1
-end
-end
-DeleteMessage(msg.chat_id_,Msgs2)
-end,nil)  
-send(msg.chat_id_, msg.id_,'*◊￤تم تنظيف الميديا المعدله*')
-end
-if not database:get(bot_id.."y:msg:media"..msg.chat_id_) and (msg.content_.text_) or (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) or (msg.content_.voice_) or (msg.content_.audio_) then    
-local gmedia = database:scard(bot_id.."msg:media"..msg.chat_id_)  
-if gmedia == 200 then
-local liste = database:smembers(bot_id.."msg:media"..msg.chat_id_)
-for k,v in pairs(liste) do
-local Mesge = v
-if Mesge then
-t = "*◊￤تم مسح "..k.." من الوسائط تلقائيا*\n*◊￤يمكنك تعطيل الميزه بستخدام الامر ( `تعطيل المسح التلقائي` )*"
-DeleteMessage(msg.chat_id_,{[0]=Mesge})
-end
-end
-send(msg.chat_id_, msg.id_, t)
-database:del(bot_id.."msg:media"..msg.chat_id_)
-end
 end
 if text == 'رقمي' then   
 tdcli_function({ID="GetUser",user_id_=msg.sender_user_id_},function(extra,result,success)
