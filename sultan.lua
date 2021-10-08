@@ -8055,28 +8055,14 @@ end
 if text == "تفعيل متحركه" and Owner(msg) then
 local t = ' \n◊￤تم تفعيل المتحركه'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:gif:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:gif:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل متحركه" and Owner(msg) then
 local t = '  \n◊￤تم تعطيل متحركه'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:gif:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:gif:sultan'..msg.chat_id_,true)  
 end
-if text == "متحركه" and not database:get(bot_id..'Matrix:gif:Matrix'..msg.chat_id_) then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "متحركه" and not database:get(bot_id..'sultan:gif:sultan'..msg.chat_id_) then
 sultansong = math.random(2,1075); 
 local Text ='*◊￤تم اختيار المتحركه لك*'
 keyboard = {} 
@@ -8086,32 +8072,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token ..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل ميمز" and Owner(msg)  or text == "تفعيل الميمز" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الميمز'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:memz:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:memz:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل ميمز" and Owner(msg)  or text == "تعطيل الميمز" and Owner(msg)  then
 local t= ' \n◊￤تم تعطيل الميمز'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:memz:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:memz:sultan'..msg.chat_id_,true)  
 end
-if text == "ميمز" and not database:get(bot_id..'Matrix:memz:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false
-end
+if text == "ميمز" and not database:get(bot_id..'sultan:memz:sultan'..msg.chat_id_)  then
 sultansong = math.random(2,1201); 
 local Text ='*◊￤تم اختيار الميمز لك*'
 keyboard = {} 
@@ -8121,32 +8093,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل اغنيه" and Owner(msg)  then
 local t = ' \n*◊￤تم تفعيل اغنيه*'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:aaqq:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:aaqq:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل اغنيه" and Owner(msg)  then
 local t = ' \n*◊￤تم تعطيل اغنيه*'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:aaqq:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:aaqq:sultan'..msg.chat_id_,true)  
 end
-if text == "اغنيه" and not database:get(bot_id..'Matrix:aaqq:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "اغنيه" and not database:get(bot_id..'sultan:aaqq:sultan'..msg.chat_id_)  then
 sultansong = math.random(2,1167); 
 local Text ='*◊￤تم اختيار الاغنيه لك*'
 keyboard = {} 
@@ -8156,32 +8114,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/DavidMp3/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل غنيلي" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Audios:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Audios:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل غنيلي" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل غنيلي'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Audios:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Audios:sultan'..msg.chat_id_,true)  
 end
-if text == "غنيلي" and not database:get(bot_id..'Matrix:Audios:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "غنيلي" and not database:get(bot_id..'sultan:Audios:sultan'..msg.chat_id_)  then
 sultansong = math.random(4,2824); 
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
@@ -8189,34 +8133,20 @@ keyboard.inline_keyboard = {
 {{text = 'Channel Source ،',url="t.me/UUi9U"}},
 }
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Matrix..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..sultan..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل ريمكس" and Owner(msg)  or text == "تفعيل الريمكس" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الريمكس'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Remix:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Remix:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل ريمكس" and Owner(msg)  or text == "تعطيل الريمكس" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل الريمكس'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Remix:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Remix:sultan'..msg.chat_id_,true)  
 end
-if text == "ريمكس" and not database:get(bot_id..'Matrix:Remix:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "ريمكس" and not database:get(bot_id..'sultan:Remix:sultan'..msg.chat_id_)  then
 sultansong = math.random(2,612); 
 local Text ='*◊￤تم اختيار الريمكس لك*'
 keyboard = {} 
@@ -8226,30 +8156,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token ..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل صوره" and Owner(msg)  or text == "تفعيل الصوره" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الصوره'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Photo:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Photo:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل صوره" and Owner(msg)  or text == "تعطيل الصوره" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل الصوره'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Photo:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Photo:sultan'..msg.chat_id_,true)  
 end
-if text == "صوره" and not database:get(bot_id..'Matrix:Photo:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'MαTRιX TEαM .',url="t.me/UUi9U"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false
-end
+if text == "صوره" and not database:get(bot_id..'sultan:Photo:sultan'..msg.chat_id_)  then
 sultansong = math.random(4,1171); 
 local Text ='*◊￤تم اختيار الصوره لك*'
 keyboard = {} 
@@ -8259,32 +8177,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/PhotosDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل انمي" and Owner(msg)  or text == "تفعيل الانمي" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الانمي'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Anime:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Anime:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل انمي" and Owner(msg)  or text == "تعطيل الانمي" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل الانمي'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Anime:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Anime:sultan'..msg.chat_id_,true)  
 end
-if text == "انمي" and not database:get(bot_id..'Matrix:Anime:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "انمي" and not database:get(bot_id..'sultan:Anime:sultan'..msg.chat_id_)  then
 sultansong = math.random(3,1002); 
 local Text ='*◊￤تم اختيار صورة الانمي لك*'
 keyboard = {} 
@@ -8294,32 +8198,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل فلم" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل الافلام'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Movies:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Movies:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل فلم" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل الافلام'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Movies:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Movies:sultan'..msg.chat_id_,true)  
 end
-if text == "فلم" and not database:get(bot_id..'Matrix:Movies:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "فلم" and not database:get(bot_id..'sultan:Movies:sultan'..msg.chat_id_)  then
 sultansong = math.random(45,125); 
 local Text ='*◊￤تم اختيار الفلم لك*'
 keyboard = {} 
@@ -8329,32 +8219,18 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token ..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/MoviesDavid/'..sultansong ..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
---     Source Matrix     --
+--     Source sultan     --
 if text == "تفعيل مسلسل" and Owner(msg)  then
 local t = ' \n◊￤تم تفعيل المسلسلات'
 send(msg.chat_id_, msg.id_,t)
-database:del(bot_id..'Matrix:Series:Matrix'..msg.chat_id_) 
+database:del(bot_id..'sultan:Series:sultan'..msg.chat_id_) 
 end
 if text == "تعطيل مسلسل" and Owner(msg)  then
 local t = ' \n◊￤تم تعطيل المسلسلات'
 send(msg.chat_id_, msg.id_,t)
-database:set(bot_id..'Matrix:Series:Matrix'..msg.chat_id_,true)  
+database:set(bot_id..'sultan:Series:sultan'..msg.chat_id_,true)  
 end
-if text == "مسلسل" and not database:get(bot_id..'Matrix:Series:Matrix'..msg.chat_id_)  then
-local url,res = https.request('https://evzxar.ml/Matrix.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.Matrix ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'MαTRιX TEαM .',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
+if text == "مسلسل" and not database:get(bot_id..'sultan:Series:sultan'..msg.chat_id_)  then
 sultansong = math.random(2,54); 
 local Text ='*◊￤تم اختيار المسلسل لك*'
 keyboard = {} 
@@ -10953,7 +10829,7 @@ name = string.gsub(name,"⛈","🌨🌨🌨🌨🌨⛈🌨🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
 name = string.gsub(name,"👨‍🔬","👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👩‍🔬👨‍🔬👩‍🔬👩‍??👩‍🔬")
-name = string.gsub(name,"👨‍💻","👩‍💻👩‍💻👩‍‍💻👩‍‍??👩‍??👨‍💻👩‍💻👩‍??👩‍💻")
+name = string.gsub(name,"👨‍💻","👩‍💻👩‍💻👩‍‍💻👩‍‍??👩‍💻👨‍💻👩‍💻👩‍??👩‍💻")
 name = string.gsub(name,"👨‍◊￤","👩‍◊￤👩‍◊￤👩‍◊￤👩‍◊￤👩‍◊￤👩‍◊￤👨‍◊￤👩‍◊￤")
 name = string.gsub(name,"👩‍🍳","👨‍🍳👨‍🍳👨‍🍳👨‍🍳👨‍🍳👩‍🍳👨‍🍳👨‍🍳👨‍🍳")
 name = string.gsub(name,"🧚‍♀","🧚‍♂🧚‍♂🧚‍♂🧚‍♂🧚‍♀🧚‍♂🧚‍♂")
