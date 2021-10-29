@@ -7552,7 +7552,7 @@ database:set(bot_id.."sultan:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_
 send(msg.chat_id_, msg.id_,"*◊￤الان ارسل لي الامر القديم ..*")  
 return false
 end
-if text == "حذف امر" or text == "مسح امر" then 
+if text == "حذف امر" and Constructor(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11483,15 +11483,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_sultan, nil)
 return false
 end
-if text == 'تفعيل التاك' or text == 'تفعيل @all' then   
-if creatorA(msg) then
+if text == 'تفعيل التاك' and creatorA(msg) then   
 database:del(bot_id.."chat:tagall"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '*◊￤تم تفعيل @all*')
 return false
 end
 end
-if text == 'تعطيل التاك' or text == 'تعطيل @all' and DevBot(msg) then  
-if creatorA(msg) then
+if text == 'تعطيل التاك' and creatorA(msg) then  
 database:set(bot_id.."chat:tagall"..msg.chat_id_,"true")
 send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل @all *')
 return false
