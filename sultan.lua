@@ -7552,7 +7552,7 @@ database:set(bot_id.."sultan:Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_
 send(msg.chat_id_, msg.id_,"*◊￤الان ارسل لي الامر القديم ..*")  
 return false
 end
-if text == "حذف امر" or text == "مسح امر" then 
+if text == "حذف امر" and Constructor(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8811,7 +8811,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_sultan, nil)
 end
-if text == "@all" and BasicConstructor(msg) then   
+if text == "@all" and not database:get(bot_id.."Cick:all"..msg.chat_id_) and BasicConstructor(msg) then   
 if database:get(bot_id.."chat:tagall"..msg.chat_id_) then  return send(msg.chat_id_, msg.id_,"يمكنك عمل تاك للكل كل *10 دقائق* فقط") end
 database:setex(bot_id..'chat:tagall'..msg.chat_id_,600,true)
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
@@ -11483,13 +11483,15 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_sultan, nil)
 return false
 end
-if text == 'تفعيل التاك' and creatorA(msg) then   
+if text == 'تفعيل التاك' or text == 'تفعيل @all' then   
+if creatorA(msg) then
 database:del(bot_id.."Cick:all"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '*◊￤تم تفعيل @all*')
 return false
 end
 end
-if text == 'تعطيل التاك' and creatorA(msg) then  
+if text == 'تعطيل التاك' or text == 'تعطيل @all' then  
+if creatorA(msg) then
 database:set(bot_id.."Cick:all"..msg.chat_id_,"true")
 send(msg.chat_id_, msg.id_, '*◊￤تم تعطيل @all *')
 return false
@@ -11628,12 +11630,12 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Texti).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-if text == "تعطيل المسح التلقائي" and Owner(msg) then        
+if text == "تعطيل المسح التلقائي" and Constructor(msg) then        
 database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تعطيل المسح التلقائي للميديا')
 return false
 end 
-if text == "تفعيل المسح التلقائي" and Owner(msg) then        
+if text == "تفعيل المسح التلقائي" and Constructor(msg) then
 database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
 return false
