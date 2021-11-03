@@ -1970,16 +1970,6 @@ if text == ("الميديا") and BasicConstructor(msg) then
 local gmria = database:scard(bot_id.."sultan:allM"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"◊￤عدد الميديا الموجود هو (* "..gmria.." *)")
 end
-if text == "تعطيل المسح التلقائي" and BasicConstructor(msg) then        
-database:del(bot_id.."y:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تعطيل المسح التلقائي للميديا')
-return false
-end 
-if text == "تفعيل المسح التلقائي" and BasicConstructor(msg) then        
-database:set(bot_id.."y:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
-return false
-end 
 if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."sultan:Lock:text"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","*◊￤تم قفـل الدردشه*")  
@@ -2487,16 +2477,6 @@ end
 if text == "فتح الشارحه" and Addictive(msg) then
 database:del(bot_id.."sultan:Lock:Cmd"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","*◊￤تم فتح الشارحه*")  
-return false
-end 
-if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
-database:set(bot_id.."y:sultan:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
-return false
-end 
-if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
-database:del(bot_id.."y:sultan:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تفعيل المسح التلقائي للميديا*')
 return false
 end 
 if text == "قفل الصور"and Addictive(msg) then
@@ -6244,16 +6224,6 @@ if text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Addic
 database:del(bot_id..'sultan:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تـم فـتح الفارسيه\n")  
 end
-if text == "تعطيل المسح التلقائي" or text == "تعطيل المسح" and Owner(msg) then        
-database:set(bot_id.."y:sultan:msg:media"..msg.chat_id_,true)
-Reply_Status(msg,msg.sender_user_id_,"lock",'*◊￤تم تعطيل المسح التلقائي للميديا*')
-return false
-end 
-if text == "تفعيل المسح التلقائي" or text == "تفعيل المسح" and Owner(msg) then        
-database:del(bot_id.."y:sultan:msg:media"..msg.chat_id_)
-Reply_Status(msg,msg.sender_user_id_,"lock",'◊￤تم تفعيل المسح التلقائي للميديا')
-return false
-end 
 if text == 'قفل الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id..'sultan:lock:Fshar'..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","◊￤تم قفل الفشار")  
