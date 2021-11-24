@@ -2073,7 +2073,7 @@ database:del(bot_id.."Status:lock:kanser"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","*◊￤تم فتح الكانسر *")
 return false
 end 
-if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
+if text == "قفل الكل" and msg.reply_to_message_id_ == 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2264,7 +2264,7 @@ database:del(bot_id.."sultan:Lock:edit"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","*◊￤تم فـتح تعديل*")  
 return false
 end 
-if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
+if text == "فتح الكل" and msg.reply_to_message_id_ == 0 and DevBot(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8096,6 +8096,20 @@ send(msg.chat_id_, msg.id_,t)
 database:set(bot_id..'sultan:Audios:sultan'..msg.chat_id_,true)  
 end
 if text == "غنيلي" and not database:get(bot_id..'sultan:Audios:sultan'..msg.chat_id_)  then
+local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.sultan ~= true then
+Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 sultansong = math.random(4,2824); 
 local Text ='*◊￤تم اختيار المقطع الصوتي لك*'
 keyboard = {} 
@@ -17037,6 +17051,20 @@ send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 return false
 end
 if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:kktt'..msg.chat_id_) then
+local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.sultan ~= true then
+Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 local texting = {"اخر افلام شاهدتها", 
 "اخر افلام شاهدتها", 
 "ما هي وظفتك الحياه", 
