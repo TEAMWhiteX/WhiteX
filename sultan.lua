@@ -8099,11 +8099,11 @@ if text == "غنيلي" and not database:get(bot_id..'sultan:Audios:sultan'..msg
 local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.sultan ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+Text = "\n◊￤عذرا لاتستطيع استخدام البوت !\n◊￤عليك الاشتراك في قناة السورس اولا :"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+{text = 'اضغط للاشتراك ⏺',url="t.me/UUI9U"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -11971,13 +11971,25 @@ File:close()
 sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '◊￤عدد مجموعات التي في البوت { '..#list..'}')
 end
 if text == 'المطور' or text == 'مطور' or text == 'المطورين' then
-local Text_Dev = database:get(bot_id..'sultan:Text_Dev')
+local Text_Dev = database:get(bot_id..'Matrix:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-send(msg.chat_id_, msg.id_,"◊￤المطور ↜ ["..data.first_name_.."](T.me/"..data.username_..")")  
-end,nil)   
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = Sudo,offset_ = 0,limit_ = 1},function(extra,bo,success) 
+Name = "* Dev Name ↬ * ["..data.first_name_.."](T.me/"..data.username_..")\n*Dev User ↬* [@"..data.username_.."]"
+Name = Name..'*\nDev Bio ↬* ['..getbio(Sudo)..']\n'
+if bo.photos_[0] then
+x = {} 
+x.inline_keyboard = {
+{{text =""..data.first_name_.."",url="https://t.me/"..data.username_..""}},
+}
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Name)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
+else
+send(msg.chat_id_, msg.id_,Name)
+end
+end,nil)
+end,nil)
 end
 end
 if text == 'نقل الاحصائيات' and Devsultan(msg) then
@@ -17054,11 +17066,11 @@ if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:
 local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.sultan ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+Text = "\n◊￤عذرا لاتستطيع استخدام البوت !\n◊￤عليك الاشتراك في قناة السورس اولا :"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+{text = 'اضغط للاشتراك ⏺',url="t.me/UUI9U"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -17417,7 +17429,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الكره" and database:get(bot_id..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
-num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","?? 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","?? 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","?? 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
 sendnum = num[math.random(#num)]
 local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبه الكرة : *'..text..'*'
 keyboard = {} 
