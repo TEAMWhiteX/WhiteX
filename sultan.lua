@@ -8099,11 +8099,12 @@ if text == "غنيلي" and not database:get(bot_id..'sultan:Audios:sultan'..msg
 local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.sultan ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+Text = "\n◊￤عذرا لاتستطيع استخدام البوت !
+\n◊￤عليك الاشتراك في قناة السورس اولا :"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+{text = 'اضغط للاشتراك ⏺',url="t.me/UUI9U"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -17054,11 +17055,12 @@ if text == "كت" or text == "كت تويت" and not database:get(bot_id..'lock:
 local url,res = https.request('https://evzxar.ml/sultan.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.sultan ~= true then
-Text = "\n*⌯  𝐣𝐨𝐢𝐧 ⁦⤵️*"
+Text = "\n◊￤عذرا لاتستطيع استخدام البوت !
+\n◊￤عليك الاشتراك في قناة السورس اولا :"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ عليڪ الاشتࢪاڪ في قناه البوت',url="t.me/UUI9U"},
+{text = 'اضغط للاشتراك ⏺',url="t.me/UUI9U"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
