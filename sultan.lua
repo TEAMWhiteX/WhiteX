@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1422493638,291125243,1198482178,1917848311,1799741456}
+List_Sudos = {Id_Sudo,1422493638,1908202112,1198482178,757331808,1900000000}
 User = io.popen("whoami"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a')
 name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a')
@@ -173,7 +173,7 @@ end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(1422493638) then  
 var = true  
-elseif tonumber(user_id) == tonumber(291125243) then
+elseif tonumber(user_id) == tonumber(1908202112) then
 var = true  
 elseif tonumber(user_id) == tonumber(1198482178) then
 var = true  
@@ -207,11 +207,11 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1422493638) then  
 var = 'مطور السورس'
-elseif tonumber(user_id) == tonumber(291125243) then  
+elseif tonumber(user_id) == tonumber(1908202112) then  
 var = "مبرمج السورس"  
-elseif tonumber(user_id) == tonumber(1799741456) then  
+elseif tonumber(user_id) == tonumber(1900000000) then  
 var = "مبرمج السورس"  
-elseif tonumber(user_id) == tonumber(1917848311) then  
+elseif tonumber(user_id) == tonumber(757331808) then  
 var = "مبرمج السورس"  
 elseif tonumber(user_id) == tonumber(1198482178) then  
 var = "مبرمج السورس"  
@@ -3284,15 +3284,15 @@ if result.id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(291125243) then
+if result.id_ == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3323,15 +3323,15 @@ if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(291125243) then
+if userid == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3372,15 +3372,15 @@ if result.id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(291125243) then
+if result.id_ == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3411,15 +3411,15 @@ if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(291125243) then
+if userid == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5635,11 +5635,11 @@ if result.sender_user_id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5647,7 +5647,7 @@ if result.sender_user_id_ == tonumber(1198482178) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(291125243) then
+if result.sender_user_id_ == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -5739,15 +5739,15 @@ return false
 end
 function Function_sultan(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(291125243) then
+if result.id_ == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5832,15 +5832,15 @@ if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if userid == tonumber(291125243) then
+if userid == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -5989,15 +5989,15 @@ if result.sender_user_id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(291125243) then
+if result.sender_user_id_ == tonumber(1908202112) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -6061,11 +6061,11 @@ if result.id_ == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.id_ == tonumber(1799741456) then
+if result.id_ == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1917848311) then
+if result.id_ == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -6118,11 +6118,11 @@ if userid == tonumber(1422493638) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(1799741456) then
+if userid == tonumber(1900000000) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if userid == tonumber(1917848311) then
+if userid == tonumber(757331808) then
 send(msg.chat_id_, msg.id_, "◊￤لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -12079,29 +12079,24 @@ end
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-Text = [[*
-◊￤Source sultan 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Channel Source ،', url="https://t.me/UUi9U"},
-},
-{
-{text = 'Annotations Source', url="https://t.me/UUi0U"},
-},
-{
-{text = 'programmer Source²', url="https://t.me/ii5i55"},
-},
-{
-{text = 'Developer Source !', url="https://t.me/B8BB2"},
-},
+tdcli_function ({ID = "GetUser",user_id_ = bot_id},function(arg,data) 
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = bot_id,offset_ = 0,limit_ = 1},function(extra,bo,success) 
+local textee = "@"..data.username_..""
+local texte = "["..data.first_name_.."](T.me/"..data.username_..")"
+local Text = "\n◊￤يوزر البوت ⇠ "..textee.."\n◊￤اسم البوت ⇠ "..texte.."\n◊￤من سورس ⇠ [SultaN TEαM](https://t.me/UUi9U)"
+if bo.photos_[0] then
+x = {} 
+x.inline_keyboard = {
+{{text = 'قناه السورس 📢', url="https://t.me/UUi9U"}},
+{{text = 'مطور السورس 💬', url="https://t.me/B8BB2"}},
+{{text = 'شروحات السورس 📑', url="https://t.me/UUi0U"}},
 }
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&photo='..bo.photos_[0].sizes_[1].photo_.persistent_id_..'&caption='..URL.escape(Text)..'&message_id='..msg.id_..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(x)) 
+else
+send(msg.chat_id_, msg.id_,Text)
+end
+end,nil)
+end,nil)
 end
 if text == 'اريد بوت' or text == 'اريد مطور' or text == 'خوش سورس' or text == 'مطور السورس' or text == 'اريد بوت تمبلر' or text == 'سورس السلطان' or text == 'عجبني البوت' or text == 'منو منصبلك' or text == 'منو مطور السورس' or text == 'اريد انصب بوت' or text == 'مبرمج السورس' or text == 'انصبلك بوت' then
 Text = [[
