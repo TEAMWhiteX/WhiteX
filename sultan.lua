@@ -12490,27 +12490,6 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == "نسبة الحب" or text == "نسبه حب" then
-if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
-database:set(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
-Text = '◊￤الان ارسل اسمك واسم الشخص الثاني :'
-send(msg.chat_id_, msg.id_,Text) 
-end
-end
-if text and text ~="نسبة الحب" and database:get(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","?? 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
-sendnum = num[math.random(#num)]
-local Text = '◊￤اليك النتائج الخـاصة :\n\n◊￤نسبة الحب بيـن : *'..text..'*'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '◊￤'..sendnum..'%',url="https://t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-database:del(bot_id..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
-end
 if text == 'كيبورد اوامر الاذاعة ↝' then  
 if Devsultan(msg) then
 local Text = '*◊￤مرحبا بك في كيبورد اوامر الاذاعة*'
@@ -12583,7 +12562,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 Test = start
 else
-Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." *\n*◊￤اختصاص البوت حماية المجموعات*\n*◊￤لتفعيل البوت عليك اتباع مايلي*\n*◊￤اضف البوت الى مجموعتك*\n*◊￤ارفعه ادمن {مشرف}*\n*◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*◊￤سيتم ترقيتك منشئ اساسي في البوت*\n*◊￤للعب داخل البوت ارسل  : /play .*\n*◊￤مطور البوت ↜ {"..UserName.."}*"
+Texti = "\n*◊￤أهلآ بك في بوت "..Namebot.." *\n*◊￤اختصاص البوت حماية المجموعات*\n*◊￤لتفعيل البوت عليك اتباع مايلي*\n*◊￤اضف البوت الى مجموعتك*\n*◊￤ارفعه ادمن {مشرف}*\n*◊￤ارسل كلمة { تفعيل } ليتم تفعيل المجموعه*\n*◊￤سيتم ترقيتك منشئ اساسي في البوت*\n*◊￤مطور البوت ↜ {"..UserName.."}*"
 keyboard = {} 
 keyboard.inline_keyboard ={{{text = "اضفني", switch_inline_query="للتفعيل ارفعني مشرف وارسل تفعيل في المجموعه ."}}}
 local msg_id = msg.id_/2097152/0.5
@@ -12601,12 +12580,6 @@ end
 if text == 'تعطيل النسخه التلقائيه ↝' and VIP_DeV(msg) then  
 send(msg.chat_id_, msg.id_,"*◊￤تم تعطيل النسخه الاحتياطيه التلقائيه*") 
 database:set(bot_id.."AutoFile",true) 
-end
-if text and text:match("^برج (.*)$") then
-local Textbrj = text:match("^برج (.*)$")
-gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
-br = JSON.decode(gk)
-send(msg.chat_id_, msg.id_, br.ok.hso)
 end
 if text and text:match('^بحث (.*)$') then            
 local Ttext = text:match('^بحث (.*)$') 
@@ -12647,124 +12620,6 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,Text,keyboard)
 return false
-end
-if text == '/play' or text == 'الاوامر الخدمية ↝' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*◊￤عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-return false
-end
-local Text = '*◊￤اهلا بك مجددا عزيزي المطور \n◊￤اليك الازرار الخاصه بأوامر الخدمية لسورس السلطان فقط اضغط على الامر الذي تريد تنفيذه*'
-local keyboard = {
-{'الابراج ↝'},
-{'اليوتيوب ↝'},
-{'نسبة الخيانة','نسبة الزحف'},
-{'نسبة الكره','نسبة الرجوله','نسبة الحب'},
-{'نسبة الرجوله','نسبة الحب'},
-{'نسبة الغباء','كشف الحيوان','كشف الارتباط'},
-{'رموز مزخرفة 🏷️','ارقام جاهزة 🔢'},
-{'قناة السورس 📡 .'},
-{'رجوع 🔚'},
-}
-send_inline_key(msg.chat_id_,Text,keyboard)
-return false
-end
-if text == 'الابراج' or text == 'الابراج ↝' then
-local Text = '*مرحبا بك عزيزي في قائمة الابراج اختر برجك الان !*'
-local keyboard = {
-{'برج العقرب','برج الثور'},
-{'برج العذراء','برج القوس'},
-{'برج الجوزاء','برج الحوت'},
-{'برج الميزان','برج الحمل'},
-{'برج الاسد','برج السرطان'},
-{'برج الدلو','برج العذراء'},
-{'رجوع 🔚'},
-}
-send_inline_key(msg.chat_id_,Text,keyboard)
-return false
-end
-if text == 'اليوتيوب ↝' then
-Text = [[*
-◊￤اهلا بك في يوتيوب البوت 
-◊￤طريقة البحث 
-◊￤بحث + اسم الاغنية او المطرب*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="https://t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UUi9U&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-if text == 'قناة السورس 📡 .' then
-Text = [[*
-◊￤Welcome to Source
-◊￤TeAm - ”sultan”
- ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉*
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'Sultan Team',url="https://t.me/UUi9U"},
-},
-{
-{text = '𝗯𝗼𝘁 𝘁𝘄𝗶𝘀𝗹',url="t.me/U41bot"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/UUi9U&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-if text == 'رموز مزخرفة 🏷️' then
-Text = [[
- ۞ ۩ ✟ 『  』۝ Ξ 道 凸 父 个 ¤ 品 〠 ๛ 𖤍 ᶠᶸᶜᵏᵧₒᵤ ࿐ ⍆ ⍅ ⇭ ༒   𖠃 𖠅 𖠆 𖠊 𖡒 𖡗 𖣩 ꧁ ꧂  〰 𖥓 𖥏 𖥎 𖥌 𖥋 𖥊 ?? 𖥅 𖥃 ?? 𖥀 𖤼 𖤹 𖤸 𖤷 𖤶 𖤭 𖤫 𖤪 𖤨 𖤧 𖤥 𖤤 ?? 𖤢 𖤡 𖤟 𖤞 ?? ?? 𖤛 𖤚 𖤘 𖤙 𖤗 𖤕 𖤓 𖤒 𖤐 ဏ ࿘ ࿗ ࿖ ࿕ ࿑ ࿌ ࿋ ࿊ ࿉ ࿈ ࿇ ࿅ ࿄ ࿃ ࿂ ༼ ༽ ༺ ༻ ༗ ༖ ༕ ⏝ ⏜ ⏎ ၄ ߷ ܛ ׀
-𖠀 𖠁 𖠂 𖠅 𖠆 𖠇 𖠈 𖠉 𖠍 𖠎 𖠏 𖠐 𖠑 𖠒 𖠓 𖠔 𖠕 𖠖 𖠗 𖠘 𖠙 𖠚 𖠛 𖠜 𖠝 𖠞 𖠟 𖠠 𖠡 𖠢 𖠣 𖠤 𖠥 𖠦 𖠧 𖠨 𖠩 𖠪 𖠫 𖠬 𖠭 𖠮 𖠯 𖠰 𖠱 𖠲 𖠳 𖠴 𖠵 𖠶 𖠷 𖠸 𖠹 𖠺 𖠻 𖠼 𖠽 𖠾 𖠿 𖡀 𖡁 𖡂 𖡃 𖡄 𖡅 𖡆 𖡇 𖡈 𖡉 𖡊 𖡋 𖡌 𖡍 𖡎 𖡏 𖡐 𖡑 𖡒 𖡓 𖡔 𖡕 𖡖 𖡗 𖡘 𖡙 𖡚 𖡛 𖡜 𖡝 𖡞 𖡟 𖡠 𖡡 𖡢 𖡣 𖡤 𖡥 𖡦 𖡧 𖡨 𖡩 𖡪 𖡫 𖡬 𖡭 𖡮 𖡯 𖡰 𖡱 𖡲 𖡳 𖡴 𖡵 𖡶 𖡷 𖡸 𖡹 𖡺 𖡻 𖡼 𖡽 𖡾 𖡿 𖢀 𖢁 𖢂 𖢃 𖢄 𖢅 𖢆 𖢇 𖢈 𖢉 𖢊 𖢋 𖢌 𖢍 𖢎 𖢏 𖢐 𖢑 𖢒 𖢓 𖢔 𖢕 𖢖 𖢗 𖢘 𖢙 𖢚 𖢛 𖢜 𖢝 𖢞 𖢟 𖢠 𖢡 𖢢 𖢣 𖢤 𖢥 𖢦 𖢧 𖢨 𖢩 𖢪 𖢫 𖢬 𖢭 𖢮 𖢯 𖢰 𖢱 𖢲 𖢳 𖢴 𖢵 𖢶 𖢷 𖢸 𖢹 𖢺 𖢻 𖢼 𖢽 𖢾 𖢿 𖣀 𖣁 𖣂 𖣃 𖣄 𖣅 ?? 𖣇 𖣈 𖣉 𖣊 𖣋 𖣌 𖣍 𖣎 𖣏 𖣐 𖣑 𖣒 𖣓 𖣔 𖣕 𖣖 𖣗 𖣘 𖣙 𖣚 𖣛 𖣜 𖣝 𖣞 𖣟 𖣠 𖣡 𖣢 𖣣 𖣤 𖣥 𖣦 𖣧 𖣨 𖣩 𖣪 𖣫 𖣬 𖣭 𖣮 𖣯 𖣰 𖣱 𖣲 𖣳 𖣴 𖣵 𖣶 𖣷 𖣸 𖣹 𖣺 𖣻 𖣼 𖣽 𖣾 𖣿
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = ' معرفة المزيد ؟',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-if text == 'ارقام جاهزة 🔢' then
-Text = [[
-*₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₀
-↝??↝ ◊￤❷ ◊￤◊￤❸ ◊￤◊￤❹ •◊￤❺ ◊￤𝟔 𝟕 ?? 𝟗 ◊￤⓿ •
-𝟭 𝟮 𝟯 𝟰 𝟱 𝟲 𝟳 𝟴 𝟵 𝟬
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-⓵⓶⓷⓸⓹⑥⑦⑧⑨⓪
-⓵⓶⓷⓸⓹❻❼❽❾⓿
-⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
- 𝟶 𝟷 𝟸 𝟹 𝟺 𝟻 𝟼 𝟽 𝟾  𝟿
- ? 𝟙  𝟚  𝟛  𝟜  𝟝  𝟞  𝟟  𝟠 𝟡
- 𝟬 𝟭  𝟮  𝟯  𝟰  𝟱   𝟲  𝟳  𝟴  𝟵  
- ◊￤⓿ ◊￤ ◊￤❶ ◊￤ ◊￤❷ ◊￤ ◊￤❸ ◊￤ ◊￤❹ ◊￤ ◊￤❺ ◊￤  𝟔  𝟕   𝟖   𝟗
-０ １ ２ ３ ４ ５ ６ ７８９
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-*]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = ' معرفة المزيد ؟',url="t.me/UUi9U"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text and text:match("^/start ph(.*)$") then
 Sf = database:get(bot_id.."sultan:Filter:msg")
